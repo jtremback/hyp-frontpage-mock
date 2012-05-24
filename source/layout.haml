@@ -5,10 +5,6 @@
     / Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %link{:href => "stylesheets/site.css", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "stylesheets/base.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
-    /[if lt IE 9 ] <link rel="stylesheet" href="./css/720_grid.css" type="text/css">
-    %link{:href => "stylesheets/720_grid.css", :media => "screen and (min-width: 720px)", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "stylesheets/986_grid.css", :media => "screen and (min-width: 986px)", :rel => "stylesheet", :type => "text/css"}
     = yield_content :head
     %script{:src => "http://use.typekit.com/bpz6nxe.js", :type => "text/javascript"}
     :javascript
