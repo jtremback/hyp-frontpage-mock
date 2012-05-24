@@ -9,6 +9,9 @@
 (function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
 
 
+
+
+
 // jquery.tweet.js - See http://tweet.seaofclouds.com/ or https://github.com/seaofclouds/tweet for more info
 // Copyright (c) 2008-2011 Todd Matthews & Steve Purcell
 (function (factory) {
@@ -255,3 +258,141 @@
     });
   };
 }));
+
+
+
+
+
+
+/*
+ * Collapsible Menus
+ * A jQuery plugin that makes it easy to create collapsible menus using nested, unordered lists.
+ *
+ * Copyright 2012 Tom McFarlin, http://tommcfarlin.com
+ * Released under the MIT License
+ *
+ * http://github.com/tommcfarlin/Collapsible-Menus
+ */
+
+(function($) {
+
+	$.fn.collapsible = function(options) {
+
+	    var opts = $.extend({}, $.fn.collapsible.defaults, options);
+		return this.each(function(evt) {
+			menuHandler($(this).attr('id'), opts);
+	    });
+
+	}; // end collapse
+
+	/*--------------------------------------------------*
+ 	 * Helper Functions
+	 *--------------------------------------------------*/
+
+	/**
+	 * Initializes the menus by collapsing them (if specified) and attaching
+	 * event handlers controlling their display.
+	 *
+	 * opts   The plugins array of options
+	 */
+	function menuHandler(sId, opts) {
+
+		// Use the menu ID attribute to properly select nested menus
+		$('#' + sId + ' li ul').parent('li')
+			.prev()
+			.each(function() {
+
+				// If set, collapse nested menus on load
+				if( opts.initialCollapse ) {
+
+					$(this).next()
+						.addClass('collapsed-menu')
+						.hide();
+
+				} else {
+
+					$(this).next()
+						.addClass('expanded-menu');
+
+				} // end if/else
+
+				// Expand or collapse menu when the root menu is clicked
+				$(this).on('click', function() {
+
+					var $menu = $(this).next();
+					switch(opts.effect.toString().toLowerCase()) {
+
+						case 'fade':
+
+							if($menu.hasClass('expanded-menu' )) {
+
+								$menu.fadeOut('fast', function() {
+									$(this).removeClass('expanded-menu')
+										.addClass('collapsed-menu');
+								});
+
+							} else {
+
+								$menu.removeClass('collapsed-menu')
+									.addClass('expanded-menu')
+									.fadeIn('fast');
+
+							} // end if/else
+
+							break;
+
+						case 'slide':
+
+							if( $menu.hasClass('expanded-menu' ) ) {
+
+								$menu.slideUp('fast', function() {
+									$(this).removeClass('expanded-menu')
+										.addClass('collapsed-menu');
+								});
+
+							} else {
+
+								$menu.removeClass('collapsed-menu')
+									.addClass('expanded-menu')
+									.slideDown('fast');
+
+							} // end if/else
+
+							break;
+
+						default:
+
+							if( $menu.hasClass('expanded-menu' ) ) {
+
+								$menu.removeClass('expanded-menu')
+									.addClass('collapsed-menu')
+									.hide();
+
+							} else {
+
+								$menu.removeClass('collapsed-menu')
+									.addClass('expanded-menu')
+									.show();
+
+							} // end if/else
+
+							break;
+
+					} // end switch/case
+
+				});
+
+			});
+
+	} // end menuHandler
+
+	/*--------------------------------------------------*
+	* Default Settings
+	*--------------------------------------------------*/
+
+	$.fn.collapsible.defaults = {
+	    effect: 'none',
+	    initialCollapse: false
+	}; // end defaults
+
+})(jQuery);

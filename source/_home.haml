@@ -15,8 +15,9 @@
   %p.strong
     They are the objectives of Hypothes.is.
 
-  .row
-    %form#register_form.slot-0-1
+  .grow
+
+    %form#register_form.four_fifths
       #availability_status
       .input-wrapper
         %div
@@ -32,7 +33,7 @@
           %input#email2{:name => "email2", :type => "text", :value => "Confirm Your Email"}
       %input{:name => "button", :type => "submit", :value => "Save my username"}
 
-    %form#register_form.slot-2-3
+    %form#register_form.one_fifth.last
       #availability_status
       .input-wrapper
         %div
@@ -48,4 +49,4 @@
           %input#email2{:name => "email2", :type => "text", :value => "Confirm Your Email"}
       %input{:name => "button", :type => "submit", :value => "Save my username"}
 
-    .tweet.slot-4-5
+//    .tweet.one_third.last

@@ -1,14 +1,10 @@
 
 
 $(document).ready(function() {
-
-
-
   // Bind an event to window.onhashchange that, when the hash changes, gets the
   // hash and adds the class "selected" to any matching nav link.
   $(window).hashchange( function(){
     var hash = location.hash;
-
     // Set the page title based on the hash.
     document.title = 'The hash is ' + ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
 
@@ -16,12 +12,12 @@ $(document).ready(function() {
       $('.grid' + hash).fadeIn();
     });
   });
-
   // Hide the invisible things ASAP on page load.
   $('.grid').not(location.hash).hide()
 });
 
 
+//TWEETBOX SETUP CODE
 jQuery(function($){
   $(".tweet").tweet({
     join_text: "auto",
@@ -37,6 +33,14 @@ jQuery(function($){
   });
 });
 
+
+//COLLAPSER SETUP CODE
+$(function() {
+    $('#navlist').collapsible({
+        effect: 'slide',             // The effect to use when expanding and collapsing the menu.
+        initialCollapse: true       // When true, collapses the menu when the page loads.
+    });
+});
 
 
 //  //VIEW SWITCHER

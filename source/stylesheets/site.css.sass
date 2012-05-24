@@ -1,6 +1,74 @@
 @import "compass"
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,900|Open+Sans:400,300)
 
+
+$wholewidth: 932px
+$marginwidth: 20px
+
+//GRID
+.grow
+  width: $wholewidth
+  +clearfix
+  background: yellow
+
+@mixin grid_presets
+  display: block
+  float: left
+  height: auto
+  margin-right: 20px
+  background: blue
+  &.last
+    margin-right: 0
+
+.one-whole
+  width: $wholewidth
+  +grid_presets
+  margin-right: 0
+
+
+.one_half
+  width: ( ( $wholewidth - ( $marginwidth * 1 ) ) / 2 * 2 ) + ( $marginwidth * 0 )
+  +grid_presets
+
+.one_third
+  width: ( ( $wholewidth - ( $marginwidth * 2 ) ) / 3 * 1 ) + ( $marginwidth * 0 )
+  +grid_presets
+
+.two_thirds
+  width: ( ( $wholewidth - ( $marginwidth * 2 ) ) / 3 * 2 ) + ( $marginwidth * 1 )
+  +grid_presets
+
+
+.one_fourth
+  width: ( ( $wholewidth - ( $marginwidth * 3 ) ) / 4 * 1 ) + ( $marginwidth * 0 )
+  +grid_presets
+
+.two_fourths
+  width: ( ( $wholewidth - ( $marginwidth * 3 ) ) / 4 * 2 ) + ( $marginwidth * 1 )
+  +grid_presets
+
+.three_fourths
+  width: ( ( $wholewidth - ( $marginwidth * 3 ) ) / 4 * 3 ) + ( $marginwidth * 2 )
+  +grid_presets
+
+
+.one_fifth
+  width: ( ( $wholewidth - ( $marginwidth * 4 ) ) / 5 * 1 ) + ( $marginwidth * 0 )
+  +grid_presets
+
+.two_fifths
+  width: ( ( $wholewidth - ( $marginwidth * 4 ) ) / 5 * 2 ) + ( $marginwidth * 1 )
+  +grid_presets
+
+.three_fifths
+  width: ( ( $wholewidth - ( $marginwidth * 4 ) ) / 5 * 3 ) + ( $marginwidth * 2 )
+  +grid_presets
+
+.four_fifths
+  width: ( ( $wholewidth - ( $marginwidth * 4 ) ) / 5 * 4 ) + ( $marginwidth * 3 )
+  +grid_presets
+
+
 body
   background: url("../images/noise_3.png")
 
@@ -10,14 +78,23 @@ body
   height: 100%
   +box-shadow(0px 0px 100px -20px rgba(0, 0, 0, .1))
 
-.navlist
-  list-style-type: none
-  text-align: right
 #navtainer
   position: fixed
   top: 0
   left: 0
 
-.workshop_pic
+#navlist
+  list-style-type: none
+  text-align: right
+  margin: 0
+  padding: 0
+  ul
+    list-style-type: none
+    text-align: right
+    margin: 0
+    padding: 0
+
+
+.pic_placeholder
   background: black
   height: 435px
