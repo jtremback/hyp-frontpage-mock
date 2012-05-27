@@ -8,12 +8,12 @@ $(document).ready(function() {
     // Set the page title based on the hash.
     document.title = 'The hash is ' + ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
 
-    $('.grid:visible').not(hash).fadeOut(function () {
-      $('.grid' + hash).fadeIn();
+    $('.page:visible').not(hash).fadeOut(function () {
+      $('.page' + hash).fadeIn();
     });
   });
   // Hide the invisible things ASAP on page load.
-  $('.grid').not(location.hash).hide()
+  $('.page').not(location.hash).hide()
 });
 
 
@@ -43,206 +43,107 @@ $(function() {
 });
 
 
-//  //VIEW SWITCHER
-//  //catches clicks on heatmap tab
-//  $(".hyp-heatmap_tab").click(function() {
-//    //adjust margin
-//    $("#source").css("margin-right", "510px");
-//    //shows sidepane
-//    $(".hyp-sidepane").show();
-//    //shows bucket
-//    $(".hyp-bucket").show();
-//    //remembers that view is bucket
-//    view = "bucket";
-//  });
+////FORM VALIDATOR
+//$(document).ready(function ()
+//{
+//    $("#register_form").validate(
+//    {
+//        errorPlacement: function (error, element) {
+//            if (element.attr('name') == 'email2') return;
+//            error.remove().hide();
+//            $("#availability_status").append(error);
+//            error.slideDown('fast');
+//        },
+//        wrapper: "div",
+//        onkeyup: function (element) {
+//            if ($(element).attr('name') != 'username') {
+//                $.validator.defaults.onkeyup.apply(this,arguments);
+//            }
+//        },
+//        unhighlight: function (element, errorClass, validClass) {
+//            $(element).removeClass(errorClass).addClass(validClass);
+//            this.addWrapper(this.errorsFor(element)).slideUp('fast', function () {
+//                $(this).remove();
+//            });
+//        },
+//        rules: {
 
-//    //catches clicks on summary
-//  $(".hyp-xb9-s").click(function() {
-//    //hides bucket
-//    $(".hyp-bucket").hide();
-//    //shows detail
-//    $(".hyp-xb9-d").show();
-//    //remembers that view is detail
-//    view = "detail";
-//  });
+//            username: {
 
+//                required: true,
+//                validchars: true,
+//                minlength: 3,
+//                maxlength: 15,
+//                remote: {
+//                    url: "hypo_user_check.php",
+//                    type: "get"
+//                }
+//                // remote check for duplicate username
+//            },
+//            email: {
+//                required: true,
+//                email: true,
+//                remote: {
+//                    url: "hypo_mail_check.php",
+//                    type: "get"
+//                }
+//            },
+//            email2: {
+//                equalTo: "#email",
+//            }
+//        },
+//        messages: {
+//            username: {
+//                required: "Username is required.",
+//                minlength: jQuery.format("Username must be at least {0} characters."),
+//                maxlength : jQuery.format("Username must be no more than {0} characters."),
+//                remote: jQuery.format("That username is already taken."),
+//                validChars: "valid Chars please"
+//            },
+//            email: {
+//                required: "Email is required.",
+//                remote: jQuery.format("That email is already registered."),
+//            },
+//            email2: {
+//                equalTo: "Email fields must match."
+//            }
+//        },
+//        // specifying a submitHandler prevents the default submit, good for now
+//        submitHandler: function ()
+//        {
+//          var url = 'http://hypothes.is';
+//              twitter_text = 'I just reserved my @hypothes_is username.  Get yours now. ',
+//              facebook_text = 'I just reserved my Hypothes.is username at http://hypothes.is Check out this new open source project and protect your favorite username!',
+//              display_text = '&quot;I just reserved my @hypothes_is username ...&quot;',
+//              twitter_button = '<div id="custom-tweet-button"><a href="https://twitter.com/share?text=' + escape(twitter_text) + '" target="_blank"><span class="twitter-text">' + display_text + '</span><br/><span class="twitter-link">Tweet this</span></a></div>',
+//              facebook_button = '<div id="custom-facebook-button"><a name="fb_share" type="box_count" href="http://www.facebook.com/sharer.php?u=' + escape(url) + '&t=' + escape(facebook_text) + '"><span class="facebook-text">' + display_text + '</span><br/><span class="facebook-link">Post this to Facebook</span></a></div>';
 
-//  //CONTENT CLICK VIEWSTEPPER
-//  //catches clicks on page content
-//  $("#content").click(function(e) {
-
-//    //Bucket to heatmap view
-//    //checks if view is bucket
-//    if (view == "bucket") {
-//      //hides sidepane
-//      $(".hyp-sidepane").hide();
-//      //shows bucket
-//      $(".hyp-bucket").hide();
-//      //resets source margin
-//      $("#source").css("margin-right", "0px");
-//      //remembers that view is heatmap
-//      view = "heatmap";
-//    }
-
-//    //detail to bucket view
-//    //checks if view is detail
-//    else if(view == "detail") {
-//      //shows bucket
-//      $(".hyp-bucket").show();
-//      //hides detail
-//      $(".hyp-detail").hide();
-//      //hides writer
-//      $(".hyp-writer").hide();
-//      //remembers that view is bucket
-//      view = "bucket";
-//    }
-
-//    //adder to heatmap view
-//    //check if view adder
-//    else if(view == "adder") {
-//      //hide adder
-//      $(".hyp-adder").hide();
-//      //change to heatmap view
-//      view = "heatmap"
-//    }
-//  });
-
-//  //CONTENT SELECT ADDERPOP
-//  //catches mouseup (should use select, not working)
-//  $("#source").mouseup(function(e) {
-//    //check if heatmap view
-//    if(view == "heatmap") {
-//      //show adder
-//      $(".hyp-adder").show();
-//      //position adder to cursor
-//      $(".hyp-adder").css({"left": e.pageX, "top": e.pageY});
-//      //change to adder view
-//      view = "adder"
-//    }
-//  });
-
-//  //ADDERCLICK ANNOTATE
-//  //catches click
-//  $(".hyp-adder> .hyp-write").click(function() {
-//    //hide adder
-//    $(".hyp-adder").hide();
-//    //shows sidepane
-//    $(".hyp-sidepane").show();
-//    //shows detail
-//    $(".hyp-n3w-d").show();
-//    //shows writer
-//    $(".hyp-writer").show();
-//    //remembers that view is detail
-//    view = "detail";
-//  });
-
-//  //COMMENT COLLAPSER
-//  $(".hyp-threadexp").click(function() {
-//    //Traverses to collapsed view and fades toggles
-//    $(this).parents(".hyp-widget:eq(0)").find(".hyp-collapsed").toggle();
-//    //Traverses to all full views below comment and shrinks them
-//    $(this).parents(".hyp-widget:eq(0)").find(".hyp-full").toggle();
-//    //Switches plus/minus
-//    $(this).toggleClass(".hyp-closed");
-//  });
-
-//  //WRITER DISPLAY
-//  $(".hyp-write").click(function() {
-//    //Shows writer
-//    $(this).parents(".hyp-widget:eq(0)").find(".hyp-writer:eq(0)").fadeIn();
-//  });
-
-//  $(".hyp-delete").click(function() {
-//    //Hides writer
-//    $(this).parents(".hyp-writer:eq(0)").fadeOut();
-//  });
-
-//  //CONTROL DISPLAY
-//  $(".hyp-nothread").mouseenter(function() {
-//    //Shows controls
-//    $(this).children(".hyp-meta").children(".hyp-fakecontrols").fadeIn(200);
-//  });
-//  $(".hyp-nothread").mouseleave(function() {
-//    //Hides controls
-//    $(this).children(".hyp-meta").children(".hyp-fakecontrols").fadeOut(500);
-//  });
-
-
-
-////HOVER HILIGHTS
-//  $(".hyp-xb9-s").hover(function() {
-//   $(".hyp-xb9").toggleClass(".hyp-hl_negative");
-//  });
-
-//  $(".hyp-zb3-s").hover(function() {
-//   $(".hyp-zb3").toggleClass(".hyp-hl_positive");
-//  });
-
-//  $(".hyp-cd6-s").hover(function() {
-//   $(".hyp-cd6").toggleClass(".hyp-hl_negative");
-//  });
-
-//  $(".hyp-wf4-s").hover(function() {
-//   $(".hyp-wf4").toggleClass(".hyp-hl_neutral");
-//  });
-
-
-////STANCE TOGGLER
-//  $(".hyp-scorecontrol> .hyp-top").mouseenter(function() {
-//    //Shows positive stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-temppositive");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-top").mouseleave(function() {
-//    //Hides positive stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-temppositive");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-top").click(function() {
-//    //Clears other stances
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-neutral");
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
-//    //Activates positive stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-positive");
-//  });
-
-
-//  $(".hyp-scorecontrol> .hyp-mid").mouseenter(function() {
-//    //Shows neutral stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-tempneutral");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-mid").mouseleave(function() {
-//    //Hides neutral stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-tempneutral");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-mid").click(function() {
-//    //Clears other stances
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-positive");
-//    //Activates neutral stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-neutral");
-//  });
-
-
-//  $(".hyp-scorecontrol> .hyp-bottom").mouseenter(function() {
-//    //Shows negative stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-tempnegative");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-bottom").mouseleave(function() {
-//    //Hides negative stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-tempnegative");
-//  });
-
-//  $(".hyp-scorecontrol> .hyp-bottom").click(function() {
-//    //Clears other stances
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
-//    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-neutral");
-//    //Activates negative stance
-//    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-negative");
-//  });
-
-
-//}); ////END
+//        	$.post('db_insert.php', $("#register_form").serialize(), function(data) {
+//							$('#availability_status').html(data);
+//							$('#register_form').html("<div id='response'></div>");
+//        			$('#response').html("<br/>")
+//        			.append("<p class='reg-message'>Please check your email.</p>")
+//        			.append("<p>" + twitter_button + "</p>")
+//        			.append("<p>" + facebook_button + "</p>");
+//					});
+//        },
+//    });
+//    jQuery.validator.addMethod('validchars', function (value, element)
+//    {
+//        return this.optional(element) || "" || /^[a-zA-Z0-9_]+$/.test(value);
+//    }, "0-9, A-Z, a-z and underscore only, please.");
+//    $(function ()
+//    {
+//        $('input[type=text]').focus(function ()
+//        {
+//            if (this.value == this.defaultValue) {
+//                this.value = '';
+//            }
+//        }).blur(function ()
+//        {
+//            if (this.value == '') {
+//                this.value = this.defaultValue;
+//            }
+//        });
+//    });
+//});

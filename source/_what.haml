@@ -1,23 +1,22 @@
-#what.grid
-
+#what.page
   .topspacer
+  .sectitle
     %h1
       What is it?
-    %hr
-
-  .content
-    %p
-      We think relatively simple tools can help us all improve the quality of information on the Internet, and by extension in the greater world around us.
-    %p
-      Hypothes.is will be a distributed, open-source platform for the collaborative evaluation of information. It will enable sentence-level critique of written words combined with a sophisticated yet easy-to-use model of community peer-review. It will work as an overlay on top of any stable content, including news, blogs, scientific articles, books, terms of service, ballot initiatives, legislation and regulations, software code and more-without requiring participation of the underlying site.
-    %p
-      It is based on a new draft standard for annotating digital documents currently being developed by the
-      = succeed "," do
-        %a{:href => "http://openannotation.org"} Open Annotation Collaboration
-      a consortium that includes the Internet Archive, NISO (National Information Standards Organization), O'Reilly Books, Amazon, Barnes and Noble, and a number of academic institutions.
-    %p
-      Interested in participating once we go live?
-      %a{:href => "#", :onclick => "$.scrollTo('#main', 800, {easing: 'easeOutQuart'});"} Reserve your username
-      now.  And please consider
-      %a{:href => "#donate", :onclick => "$.scrollTo('#donate', 800, {easing: 'easeOutQuart'});"} donating
-      to help us get started!
+  .row
+    .one_whole
+      %p
+        We think relatively simple tools can help us all improve the quality of information on the Internet, and by extension in the greater world around us.
+      %p
+        Hypothes.is will be a distributed, open-source platform for the collaborative evaluation of information. It will enable sentence-level critique of written words combined with a sophisticated yet easy-to-use model of community peer-review. It will work as an overlay on top of any stable content, including news, blogs, scientific articles, books, terms of service, ballot initiatives, legislation and regulations, software code and more-without requiring participation of the underlying site.
+      %p
+        It is based on a new draft standard for annotating digital documents currently being developed by the
+        = succeed "," do
+          %a{:href => "http://openannotation.org"} Open Annotation Collaboration
+        a consortium that includes the Internet Archive, NISO (National Information Standards Organization), O'Reilly Books, Amazon, Barnes and Noble, and a number of academic institutions.
+      %p
+        Interested in participating once we go live?
+        %a{:href => "#", :onclick => "$.scrollTo('#main', 800, {easing: 'easeOutQuart'});"} Reserve your username
+        now.  And please consider
+        %a{:href => "#donate", :onclick => "$.scrollTo('#donate', 800, {easing: 'easeOutQuart'});"} donating
+        to help us get started!

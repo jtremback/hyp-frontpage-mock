@@ -3,32 +3,154 @@
 
 @import "compass/reset"
 
+$hypothered: #bd1c2b
+
+body
+  font-size: 16px
+  color: #666
+  font-family: 'Merriweather', sans-serif
+  line-height: 1.4em
+
+ol, ul
+  margin: 1em 0
+  padding-left: 40px
+
+blockquote, q
+  quotes: none
+
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
+
+br
+  margin: 0
+
+q
+  &:before, &:after
+    content: ''
+    content: none
+
+p
+  margin: 0 0 0.5em
+
+code
+  background-color: #f4f4f4
+  font-family: Menlo, 'Panic Sans', monospace
+  font-size: 0.875em
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+strong
+  font-weight: bold
+
+em, .em
+  font-style: italic
+
+.strong
+  font-weight: bold
+
+h1, h2, h3, h4, h5, h6
+  font-family: 'Open Sans', sans-serif
+  font-weight: bold
+  line-height: 1.2em
+  padding: 0 0 .25em
+
+h1
+  font-size: 3em
+
+h2
+  font-size: 2em
+
+h3
+  font-size: 1.5em
+
+h4
+  font-size: 1.25em
+
+
+h5, h6
+  font-size: 1em
+
+a
+  color: inherit
+  -webkit-transition: color .2s ease-in .2s
+  -moz-transition: color .5s ease-in .5s
+  -o-transition: color .5s ease-in .5s
+  transition: color .2s ease-in .2s
+  text-decoration: underline
+  &:link, &:visited
+    text-decoration: underline
+  &:active
+    text-decoration: none
+  &:hover
+    color: $hypothered
+
+img
+  max-width: 100%
+
+.mn
+  margin: 0
+
+.mt
+  margin-top: 1em
+
+.mb
+  margin-bottom: 1em
+
+
+hr
+  border: none
+  margin: .7em 0
+  background-color: #bbb
+  height: 1px
+  &.big
+    border: none
+    margin: .7em 0
+    background-color: #bbb
+    height: 3px
+
+
 //GRIDMASTER PRO
-$wholewidth: 932px
+$wholewidth: 925px
 $marginwidth: 20px
 
-.row
+#pagetainer
+  width: $wholewidth + ( $marginwidth * 2 )
+  margin: 0 auto
+  height: 100%
+  background: white
+//  +box-shadow(0px 0px 100px -20px rgba(0, 0, 0, .1))
+
+.page
   width: $wholewidth
-  +clearfix
-  background: yellow
+  margin: 0 auto
+
+.row
+  +pie-clearfix
+
+.vertspace
+  margin-top: 1em
+  margin-bottom: 1em
 
 @mixin grid_presets
   display: block
   float: left
   height: auto
   margin-right: 20px
-  background: blue
   &.last
     margin-right: 0
 
-.one-whole
+.one_whole
   width: $wholewidth
   +grid_presets
   margin-right: 0
 
 
 .one_half
-  width: ( ( $wholewidth - ( $marginwidth * 1 ) ) / 2 * 2 ) + ( $marginwidth * 0 )
+  width: ( ( $wholewidth - ( $marginwidth * 1 ) ) / 2 * 1 ) + ( $marginwidth * 0 )
   +grid_presets
 
 .one_third
@@ -70,32 +192,163 @@ $marginwidth: 20px
   +grid_presets
 
 
-body
-  background: url("../images/noise_3.png")
+//body
+//  background: url("../images/noise_3.png")
 
-#pagetainer
-  background: white
-  margin: 0 auto
-  height: 100%
-  +box-shadow(0px 0px 100px -20px rgba(0, 0, 0, .1))
+.redbotbor
+  border-bottom: 3px solid $hypothered
+  +box-shadow(5px 5px 40px -7px rgba(0, 0, 0, 0.1))
+
+.redtext
+  color: $hypothered
+
+.well
+  box-sizing: border-box
+  min-height: 20px
+  padding: 19px
+  background-color: #f5f5f5
+  border: 1px solid #eee
+  border: 1px solid rgba(0, 0, 0, 0.05)
+  +border-radius( 4px )
+  +box-shadow( inset 0 1px 1px rgba(0, 0, 0, 0.05 ))
 
 #navtainer
   position: fixed
-  top: 0
+  top: 50px
   left: 0
+  padding: 20px
+  background: white
+  border-top-right-radius: 5px
+  border-bottom-right-radius: 5px
+  img
+    width: 100px
+    margin-bottom: 1em
 
 #navlist
+  font-family: sans-serif
+  font-weight: bold
   list-style-type: none
   text-align: right
   margin: 0
   padding: 0
+  li
+    margin-bottom: .25em
+    padding: 0
   ul
     list-style-type: none
     text-align: right
     margin: 0
     padding: 0
+    padding-right: .5em
+    margin-right: .5em
+    border-right: 1px dotted #bbb
+    font-size: 90%
+  a
+    text-decoration: none
 
+.topspacer
+  height: 110px
+
+.sectitle
+  position: relative
+  height: 100px
+  border-bottom: 1px solid #bbb
+  margin-bottom: 1em
+  h1, h2
+    position: absolute
+    bottom: 0
+    left: 0
 
 .pic_placeholder
   background: black
   height: 435px
+
+//PICTURES
+.picunit
+  margin-bottom: 1em
+  img
+    border-bottom: 3px solid $hypothered
+    width: 100%
+  span, a, div
+    font-family: "Open Sans"
+    font-size: .7em
+    line-height: 1em
+
+//PRINCIPLES
+.princunit
+  +pie-clearfix
+  .number
+    float: left
+    color: $hypothered
+    width: 10%
+    height: 100%
+  .text
+    float: left
+    width: 85%
+    p
+      color: #aaa
+
+
+
+//FORMS
+
+form
+  font-family: "Open Sans", sans-serif
+
+
+
+
+.button
+  font-size: 1.2em
+  font-weight: bold
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
+  color: $hypothered
+  height: 50px
+  display: inline
+  position: relative
+  border: 1px solid #aaa
+  border-radius: 3px
+  position: relative
+  +background-image(linear-gradient(#fff, #ddd))
+  &:hover
+    +background-image(linear-gradient(#f9f9f9, #ccc))
+  &:active
+    +box-shadow(inset 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.05))
+
+#register_form
+  label
+    padding-bottom: .5em
+  .button
+    +transition( none )
+    width: 80%
+    margin-left: auto
+    margin-right: auto
+
+input, textarea,
+  font-family: "Open Sans"
+  display: inline-block
+  box-sizing: border-box
+  width: 100%
+  height: 30px
+  padding: 4px
+  margin-bottom: 9px
+  font-size: 13px
+  line-height: 18px
+  color: #555555
+  background-color: #ffffff
+  border: 1px solid #cccccc
+  border-radius: 3px
+
+input, textarea
+  +box-shadow( inset 0 1px 1px rgba(0, 0, 0, 0.075 ))
+  +transition( border linear 0.2s, box-shadow linear 0.2s )
+
+.buttonwrap
+  text-align: center
+  margin-top: 1em
+
+input:focus, textarea:focus
+  border-color: rgba(82, 168, 236, 0.8)
+  outline: 0
+  outline: thin dotted \9
+  +box-shadow( inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6 )) 
