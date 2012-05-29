@@ -4,7 +4,7 @@ $(document).ready(function() {
   // Bind an event to window.onhashchange that, when the hash changes, gets the
   // hash and adds the class "selected" to any matching nav link.
   $(window).hashchange( function(){
-    var hash = location.hash;
+    var hash = location.hash || '#home';
     // Set the page title based on the hash.
     document.title = 'The hash is ' + ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
 
@@ -13,26 +13,33 @@ $(document).ready(function() {
     });
   });
   // Hide the invisible things ASAP on page load.
-  $('.page').not(location.hash).hide()
+  $('.page').not(location.hash || '#home').hide()
 });
 
 
-//TWEETBOX SETUP CODE
-jQuery(function($){
-  $(".tweet").tweet({
-    join_text: "auto",
-    username: "seaofclouds",
-    avatar_size: 48,
-    count: 3,
-    auto_join_text_default: "we said,",
-    auto_join_text_ed: "we",
-    auto_join_text_ing: "we were",
-    auto_join_text_reply: "we replied",
-    auto_join_text_url: "we were checking out",
-    loading_text: "loading tweets..."
+////TWEETBOX SETUP CODE
+//jQuery(function($){
+//  $("#tweets").tweet({
+////    join_text: "auto",
+//    username: "hypothes_is",
+//    avatar_size: 48,
+//    count: 4,
+//    auto_join_text_default: "we said,",
+//    auto_join_text_ed: "we",
+//    auto_join_text_ing: "we were",
+//    auto_join_text_reply: "we replied",
+//    auto_join_text_url: "we were checking out",
+//    loading_text: "loading tweets..."
+//  });
+//});
+
+//MINIFEED SETUP CODE
+$(function() {
+  $('#tweets').miniFeed({
+    username: 'hypothes_is',
+    template: '<div class="tweet-avacase">{avatar}</div><div class="tweet-content">{tweet}{time}</div>'
   });
 });
-
 
 //COLLAPSER SETUP CODE
 $(function() {

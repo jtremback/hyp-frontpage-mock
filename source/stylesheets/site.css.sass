@@ -9,7 +9,7 @@ body
   font-size: 16px
   color: #666
   font-family: 'Merriweather', sans-serif
-  line-height: 1.4em
+  line-height: 1.7em
 
 ol, ul
   margin: 1em 0
@@ -32,7 +32,7 @@ q
     content: none
 
 p
-  margin: 0 0 0.5em
+  margin: 0 0 1em
 
 code
   background-color: #f4f4f4
@@ -53,13 +53,13 @@ em, .em
   font-weight: bold
 
 h1, h2, h3, h4, h5, h6
-  font-family: 'Open Sans', sans-serif
-  font-weight: bold
+  font-family: 'myriad-pro', sans-serif
   line-height: 1.2em
   padding: 0 0 .25em
+  font-weight: 600
 
 h1
-  font-size: 3em
+  font-size: 2.5em
 
 h2
   font-size: 2em
@@ -103,23 +103,26 @@ img
 
 hr
   border: none
-  margin: .7em 0
+  margin: 0
   background-color: #bbb
   height: 1px
   &.big
     border: none
-    margin: .7em 0
+    margin: 0
     background-color: #bbb
     height: 3px
+  &.blank
+    background-color: transparent
+    height: .5em
 
 
 //GRIDMASTER PRO
-$wholewidth: 925px
+$wholewidth: 700px
 $marginwidth: 20px
 
 #pagetainer
   width: $wholewidth + ( $marginwidth * 2 )
-  margin: 0 auto
+  margin-left: 140px
   height: 100%
   background: white
 //  +box-shadow(0px 0px 100px -20px rgba(0, 0, 0, .1))
@@ -129,6 +132,7 @@ $marginwidth: 20px
   margin: 0 auto
 
 .row
+  clear: both
   +pie-clearfix
 
 .vertspace
@@ -136,12 +140,16 @@ $marginwidth: 20px
   margin-bottom: 1em
 
 @mixin grid_presets
-  display: block
   float: left
   height: auto
   margin-right: 20px
   &.last
     margin-right: 0
+  &.right_float
+    margin-left: $marginwidth
+    margin-right: 0
+    float: right
+    clear: none
 
 .one_whole
   width: $wholewidth
@@ -216,23 +224,30 @@ $marginwidth: 20px
   position: fixed
   top: 50px
   left: 0
+  width: 127px
   padding: 20px
+  padding-left: 0
   background: white
   border-top-right-radius: 5px
   border-bottom-right-radius: 5px
   img
     width: 100px
-    margin-bottom: 1em
+    margin-bottom: 0
+    margin-left: 30px
+    opacity: .7
+//  +box-shadow(5px 5px 40px -7px rgba(0, 0, 0, 0.1))
 
 #navlist
-  font-family: sans-serif
+  font-family: 'myriad-pro'
   font-weight: bold
   list-style-type: none
   text-align: right
   margin: 0
+  margin-top: .7em
   padding: 0
   li
-    margin-bottom: .25em
+    margin-top: .23em
+    margin-bottom: .26em
     padding: 0
   ul
     list-style-type: none
@@ -246,18 +261,21 @@ $marginwidth: 20px
   a
     text-decoration: none
 
+.section
+  margin-bottom: 2em
+
 .topspacer
-  height: 110px
+  height: 218px
 
 .sectitle
   position: relative
-  height: 100px
-  border-bottom: 1px solid #bbb
-  margin-bottom: 1em
+
+  margin-top: .5em
   h1, h2
     position: absolute
     bottom: 0
     left: 0
+//  border-bottom: 1px solid #bbb
 
 .pic_placeholder
   background: black
@@ -270,17 +288,19 @@ $marginwidth: 20px
     border-bottom: 3px solid $hypothered
     width: 100%
   span, a, div
-    font-family: "Open Sans"
+    font-family: "myriad-pro"
     font-size: .7em
     line-height: 1em
 
 //PRINCIPLES
-.princunit
+.principle
   +pie-clearfix
+  border-bottom: 1px solid #aaa
+  height: 100%
   .number
     float: left
     color: $hypothered
-    width: 10%
+    width: 40px
     height: 100%
   .text
     float: left
@@ -288,12 +308,71 @@ $marginwidth: 20px
     p
       color: #aaa
 
+.frontpage-top
+  padding-bottom: 0
+//  text-align: center
 
+.twitbird
+  width: 70px
+
+  .one_half
+
+//  border-bottom: 1px solid #aaa
+
+.frontpage-bottom
+  .well
+    height: 380px
+    margin-top: 20px
+
+//TWEETS
+.tweet-list
+  font-family: sans-serif
+  padding-left: 0
+
+  li
+    +pie-clearfix
+    clear: none
+    position: relative
+    margin-top: 1em
+    padding-top: 1em
+    &.first
+      margin-top: 0
+      border-top: none
+
+
+.tweet-odd, .tweet-even
+  margin-top: 1em
+  padding-top: 1em
+//  border-top: 1px solid #aaa
+
+.tweet-first
+  margin-top: 0
+  border-top: none
+
+.tweet-avatar
+  margin-right: 10px
+
+.tweet-time
+  color: $hypothered
+  font-size: .8em
+
+.tweet-text
+  display: block
+
+.tweet-avacase
+  height: 100%
+  display: inline-block
+  float: left
+
+
+.tweet-content
+  float: left
+  width: 80%
 
 //FORMS
 
 form
-  font-family: "Open Sans", sans-serif
+  font-family: "myriad-pro", sans-serif
 
 
 
@@ -325,7 +404,7 @@ form
     margin-right: auto
 
 input, textarea,
-  font-family: "Open Sans"
+  font-family: "myriad-pro"
   display: inline-block
   box-sizing: border-box
   width: 100%
