@@ -1,9 +1,8 @@
 #home.page
 
   .topspacer
-  .sectitle
-    %h1
-      Imagine<span class="redtext">...</span>
+  %h1.sectitle
+    Imagine<span class="redtext">...</span>
   .section.frontpage-top
     .row
       .one_whole
@@ -22,7 +21,9 @@
       %img.twitbird{ :alt => "twitter logo", :src => "images/twitbird.png" }
 
   .row
-    #tweets.three_fourths
+    .four_fifths
+      #tweets
+      %a.morelink{:href => "https://twitter.com/#!/hypothes_is"} More...
 
 //      .one_third.last
 //        %h3 Reserve your username<span class="redtext">:</span>

@@ -6,7 +6,7 @@ $(document).ready(function() {
   $(window).hashchange( function(){
     var hash = location.hash || '#home';
     // Set the page title based on the hash.
-    document.title = 'The hash is ' + ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
+    document.title = ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
 
     $('.page:visible').not(hash).fadeOut(function () {
       $('.page' + hash).fadeIn();
@@ -37,6 +37,7 @@ $(document).ready(function() {
 $(function() {
   $('#tweets').miniFeed({
     username: 'hypothes_is',
+    limit: 4,
     template: '<div class="tweet-avacase">{avatar}</div><div class="tweet-content">{tweet}{time}</div>'
   });
 });
