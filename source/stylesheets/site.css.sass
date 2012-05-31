@@ -288,6 +288,7 @@ $marginwidth: 20px
 
 .sectitle
   margin: 0 0 20px
+  border-bottom: 1px solid $lighter-gray
 
 
 .pic_placeholder
@@ -300,7 +301,7 @@ $marginwidth: 20px
   img
     border-bottom: 3px solid $hypothered
     width: 100%
-    +box-shadow(5px 5px 40px -7px rgba(0, 0, 0, 0.1))
+    +box-shadow(5px 5px 40px -10px rgba(0, 0, 0, 0.1))
   div
     font-family: "myriad-pro"
     font-size: .7em
@@ -312,13 +313,9 @@ $marginwidth: 20px
   +pie-clearfix
   cursor: pointer
   border-bottom: 1px solid $lighter-gray
-  padding-top: 10px
+  margin-top: 1.5em
+  padding-bottom: 1.5em
   height: 100%
-  &:hover
-    .text
-      div
-        +transition( color .5s )
-        color: $base-gray
   .number
     float: left
     width: 60px
@@ -331,8 +328,28 @@ $marginwidth: 20px
     width: 85%
     div
       color: $light-gray
-      margin: 0 0 10px
       font-size: .9em
+  &:hover
+    .text
+      div
+        +transition( color .5s )
+        color: $base-gray
+
+.faqunit
+  @extend .principle
+  .triangle
+    float: left
+    width: 60px
+    text-align: center
+    .img
+      height: 35px
+      width: 35px
+      margin:
+        left: auto
+        right: auto
+      background-image: url("/images/triangle_right.png")
+      background-size: 100% 100%
+
 
 .pressunit
   padding-bottom: 2em
@@ -342,8 +359,7 @@ $marginwidth: 20px
     margin-top: -.4em
   .picunit
     margin-bottom: 0
-  &.first
-    margin-top: 0
+
   &.last
     border-bottom: none
   .one-fourth

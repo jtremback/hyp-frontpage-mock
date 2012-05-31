@@ -37,3 +37,21 @@
         Though we have a strategy to become revenue sustainable, we do need help over the next several years to get started.  We are so grateful to all the support we’ve received so far from the Sloan Foundation and our friends on Kickstarter.
       %p
         Please consider a gift.
+
+  .row
+    .one_third.last
+      %h3 Reserve your username<span class="redtext">:</span>
+      %form#register_form
+        #availability_status
+        .input-wrapper
+          %div
+            %label{:for => "username"} See if it's available.
+            %input#username.clearFocus{:name => "username", :type => "text", :placeholder => "Choose a Username"}
+        .input-wrapper
+          %div
+            %label{:for => "email"} What's your email?
+            %input#email{:name => "email", :type => "text", :placeholder => "Enter your email."}
+        .input-wrapper
+          %div
+            %label{:for => "email2"} Just to make sure.
+            %input#email2{:name => "email2", :type => "text", :placeholder => "Confirm your email."}
