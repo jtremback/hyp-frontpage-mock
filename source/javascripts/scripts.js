@@ -11,27 +11,14 @@ $(document).ready(function() {
     $('.page:visible').not(hash).fadeOut(function () {
       $('.page' + hash).fadeIn();
     });
+
+    $('#navlist a[href!="' + hash + '"]').removeClass("hover")
+    $('#navlist a[href="' + hash + '"]').addClass("hover")
   });
   // Hide the invisible things ASAP on page load.
   $('.page').not(location.hash || '#home').hide()
 });
 
-
-////TWEETBOX SETUP CODE
-//jQuery(function($){
-//  $("#tweets").tweet({
-////    join_text: "auto",
-//    username: "hypothes_is",
-//    avatar_size: 48,
-//    count: 4,
-//    auto_join_text_default: "we said,",
-//    auto_join_text_ed: "we",
-//    auto_join_text_ing: "we were",
-//    auto_join_text_reply: "we replied",
-//    auto_join_text_url: "we were checking out",
-//    loading_text: "loading tweets..."
-//  });
-//});
 
 //MINIFEED SETUP CODE
 $(function() {
@@ -42,13 +29,46 @@ $(function() {
   });
 });
 
-//COLLAPSER SETUP CODE
-$(function() {
-    $('#navlist').collapsible({
-        effect: 'slide',             // The effect to use when expanding and collapsing the menu.
-        initialCollapse: true       // When true, collapses the menu when the page loads.
-    });
+
+//COLLAPSING ITEMS
+$(document).ready(function() {
+  $(".collapser").addClass("collapsed");
+  $(".collapser").click(function() {
+    $(this).parents(".accordion").find(".collapser").addClass("collapsed");
+    $(this).toggleClass("collapsed");
+  });
 });
+
+//TOOLTIPS
+$(document).ready(function() {
+  $(".tip").hide();
+  $(".tipper").click(function() {
+    var person = "." + $(this).attr("id");
+    $(this).parents(".accordion").find(".tip:not(person)").slideUp("slow");
+    $(this).parents(".accordion").find(person).slideToggle("slow");
+  });
+
+
+//  $(".tipper").mouseleave(function() {
+//    var person = "." + $(this).attr("id");
+//    $(this).parents(".accordion").find(person).addClass("collapsed");
+//  });
+//  $(".tip").mouseenter(function() {
+//    $(this).removeClass("collapsed");
+//  });
+});
+
+//PICUNIT HOVERTEXT
+$(document).ready(function() {
+  $(".hovertext").hide();
+  $(".tipper").hover(function() {
+    $(this).find(".caption").toggle();
+    $(this).find(".hovertext").toggle();
+  });
+});
+
+//MODALS
+
 
 
 ////FORM VALIDATOR

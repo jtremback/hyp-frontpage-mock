@@ -3,54 +3,38 @@
   .topspacer
   %h1.sectitle
     Imagine<span class="redtext">...</span>
-  .section.frontpage-top
+
+  .home.accordion
     .row
       .one_whole
-        %p
+        %p.em
           If wherever we encountered new information, sentence by sentence, frame by frame, we could easily know the best thinking on it.
-        %p
+        %p.em
           If we had confidence that this represented the combined wisdom of the most informed people&mdash;not as anointed by editors, but as weighed over time by our peers, objectively, statistically and transparently.
-        %p
+        %p.em
           If this created a powerful incentive for people to ensure that their works met a higher standard, and made it perceptibly harder to spread information that didn't meet that standard.
         %p
           These goals are possible with today's technologies.
         %p
           They are the objectives of Hypothes.is.
-        %a{ :href => "#" } Reserve your username.
+        %a#us_re.strong.tipper Reserve your username.
+        %form#register_form.two_thirds.us_re.tip
+          #availability_status
+          %label{:for => "username", :style => "display: none;"} Choose a Username.
+          %input#username.clearFocus{:name => "username", :type => "text", :placeholder => "Choose a Username"}
+          %label{:for => "email", :style => "display: none;"} Enter your email.
+          %input#email{:name => "email", :type => "text", :placeholder => "Enter your email."}
+          %label{:for => "email2", :style => "display: none;"} Confirm your email.
+          %input#email2{:name => "email2", :type => "text", :placeholder => "Confirm your email."}
+          %input.button{:name => "button", :type => "submit", :value => "Save my username"}
 
-  .row
-    .one_fifth
-      %img.twitbird{ :alt => "twitter logo", :src => "images/twitbird.png" }
+    .spacer
 
-  .row
-    .four_fifths
-      #tweets
-      %a.morelink{:href => "https://twitter.com/#!/hypothes_is"} More...
+    .row
+      .one_fifth
+        .twitbird
 
-//      .one_third.last
-//        %h3 Reserve your username<span class="redtext">:</span>
-//        %form#register_form.well
-//          #availability_status
-//          .input-wrapper
-//            %div
-//              %label{:for => "username"} See if it's available.
-//              %input#username.clearFocus{:name => "username", :type => "text", :placeholder => "Choose a Username"}
-//          .input-wrapper
-//            %div
-//              %label{:for => "email"} What's your email?
-//              %input#email{:name => "email", :type => "text", :placeholder => "Enter your email."}
-//          .input-wrapper
-//            %div
-//              %label{:for => "email2"} Just to make sure.
-//              %input#email2{:name => "email2", :type => "text", :placeholder => "Confirm your email."}
-//          .buttonwrap
-//            %input.button{:name => "button", :type => "submit", :value => "Save my username"}
-
-
-
-//  .section.frontpage-bottom
-//    .row
-
-//      .one_half
-//        %h3 Donate<span class="redtext">:</span>
-//        .well
+    .row
+      .four_fifths
+        #tweets
+        %a.morelink{ :href => "https://twitter.com/#!/hypothes_is" } More...
