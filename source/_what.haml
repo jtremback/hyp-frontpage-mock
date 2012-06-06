@@ -5,7 +5,8 @@
 
   .what.accordion
     .row
-      %img.one_whole.fakevid{ :alt => "fake video", :src => "images/fakevid.jpg" }
+      .realvid
+        %iframe{:allowFullScreen => "", :frameborder => "0", :height => "338", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/29633009", :webkitAllowFullScreen => "", :width => "600"}
 
     .row
       .one_whole
@@ -19,9 +20,9 @@
             %a{:href => "http://openannotation.org"} Open Annotation Collaboration
           a consortium that includes the Internet Archive, NISO (National Information Standards Organization), O'Reilly Books, Amazon, Barnes and Noble, and a number of academic institutions.
 
-        %p.strong
+        %p
           Interested in participating?
-          %a#us_re.strong.tipper Reserve your username.
+          %a#us_re.tipper Reserve your username.
         %form#register_form.two_thirds.us_re.tip
           #availability_status
           %label{:for => "username", :style => "display: none;"} Choose a Username.
@@ -32,7 +33,7 @@
           %input#email2{:name => "email2", :type => "text", :placeholder => "Confirm your email."}
           %input.button{:name => "button", :type => "submit", :value => "Save my username"}
 
-        %div.strong
+        %div
           And please consider
           %a{:href => "#donate"} donating
           to help us get started!

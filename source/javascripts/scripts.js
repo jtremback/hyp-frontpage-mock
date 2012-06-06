@@ -4,9 +4,7 @@ $(document).ready(function() {
   // Bind an event to window.onhashchange that, when the hash changes, gets the
   // hash and adds the class "selected" to any matching nav link.
   $(window).hashchange( function(){
-    var hash = location.hash || '#home';
-    // Set the page title based on the hash.
-    document.title = ( hash.replace( /^#/, '' ) || 'blank' ) + '.';
+    var hash = location.hash || '#imagine';
 
     $('.page:visible').not(hash).fadeOut(function () {
       $('.page' + hash).fadeIn();
@@ -16,7 +14,7 @@ $(document).ready(function() {
     $('#navlist a[href="' + hash + '"]').addClass("hover")
   });
   // Hide the invisible things ASAP on page load.
-  $('.page').not(location.hash || '#home').hide()
+  $('.page').not(location.hash || '#imagine').hide()
 });
 
 
@@ -33,9 +31,12 @@ $(function() {
 //COLLAPSING ITEMS
 $(document).ready(function() {
   $(".collapsee").hide();
+  $(".collapser").addClass("collapsed");
   $(".collapser").click(function() {
     $(this).parents(".accordion").find(".collapser").not(this).find(".collapsee").slideUp();
+    $(this).parents(".accordion").find(".collapser").not(this).removeClass("collapsed");
     $(this).find(".collapsee").slideToggle();
+    $(this).toggleClass("collapsed");
   });
 });
 

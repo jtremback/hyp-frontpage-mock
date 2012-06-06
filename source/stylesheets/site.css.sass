@@ -379,8 +379,7 @@ $marginwidth: 20px
 
   p
     font-size: .9em
-  &.collapsed
-    height: 0
+
 
 
 //PRINCIPLES
@@ -413,10 +412,6 @@ $marginwidth: 20px
         +transition( color .5s )
         color: $base-gray
 
-  &.collapsed
-    .collapsee
-      height: 0
-
 .faqunit
   @extend .principle
   .triangle
@@ -429,16 +424,14 @@ $marginwidth: 20px
       margin:
         left: auto
         right: auto
-      background-image: url("/images/triangle_down.png")
+      background-image: url("../images/triangle_right.png")
       background-size: 100% 100%
   .text
   &.collapsed
     .triangle
       .img
-        background-image: url("/images/triangle_right.png")
+        background-image: url("../images/triangle_down.png")
         background-size: 100% 100%
-    .collapsee
-      height: 0
 
 
 .pressunit
@@ -461,7 +454,7 @@ $marginwidth: 20px
       margin-top: .4em
 
 
-.fakevid
+.realvid
   margin-bottom: 40px
 
 .frontpage-top
@@ -471,11 +464,11 @@ $marginwidth: 20px
 .twitbird
   margin: -10px
   width: 60px
-  background-image: url("/images/twitbird_gray.png")
+  background-image: url("../images/twitbird_gray.png")
   height: 60px
   background-size: 100% 100%
   &:hover
-    background-image: url("/images/twitbird_red.png")
+    background-image: url("../images/twitbird_red.png")
 
   .one_half
 
