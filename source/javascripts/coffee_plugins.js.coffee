@@ -2,8 +2,8 @@
 # miniFeed, the Twitter plugin for jQuery
 # Instructions: http://minijs.com/plugins/9/feed
 # By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @mattaussaguel
-# Version: 0.2 Beta
-# Updated: April 16, 2012
+# Version: 1.0
+# Updated: June 10, 2012
 # More info: http://minijs.com/
 #
 
@@ -46,13 +46,13 @@ class Tweet
     return @options.firstClass if index is 0
     return @options.lastClass  if index is (size - 1)
 
-  avatarUrl: -> @data.user.profile_image_url
+  avatarUrl: -> @data.user.profile_image_url_https
 
   isReply: -> @data.in_reply_to_status_id?
 
   # class methods
   @apiUrl: (options) ->
-    apiUrl =  "http://api.twitter.com/1/statuses/user_timeline.json?"
+    apiUrl =  "https://api.twitter.com/1/statuses/user_timeline.json?"
     apiUrl += "screen_name=#{options.username}"
     apiUrl += "&count=#{options.limit}"
     apiUrl += "&include_rts=1" unless options.hideRetweets
