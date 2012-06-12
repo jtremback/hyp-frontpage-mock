@@ -45,7 +45,7 @@ $(document).ready(function() {
   $(".tip").hide();
   $(".tipper").click(function() {
     var person = "." + $(this).attr("id");
-    $(this).parents(".accordion").find(".tip").not(person).slideUp("slow")
+    $(this).parents(".accordion").find(".tip").not(person).slideUp("slow");
     $(this).parents(".accordion").find(person).slideToggle("slow");
   });
 
