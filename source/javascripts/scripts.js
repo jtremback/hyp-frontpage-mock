@@ -6,6 +6,9 @@ $(document).ready(function() {
   $(window).hashchange( function(){
     var hash = location.hash || '#imagine';
 
+//    // Set the page title based on the hash.
+//    document.title = ( hash.replace( /^#/, '' ) || 'blank' ) + ' | Hypothes.is';
+
     $('.page:visible').not(hash).fadeOut(function () {
       $('.page' + hash).fadeIn();
     });
