@@ -1,0 +1,7 @@
+
+DirectoryIndex index.php index.html index.htm
+AddHandler php5-script .php
+Header set Strict-Transport-Security max-age=15768000;includeSubdomains
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !443
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
