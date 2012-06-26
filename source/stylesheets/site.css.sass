@@ -36,22 +36,44 @@ blockquote
     content: none
 
 input
-  font-family: "myriad-pro"
+  font-family: "Open Sans", sans-serif
   font-size: 1em
   display: inline-block
   box-sizing: border-box
-  padding: 6px 8px
+  padding: 6px 6px
   margin-bottom: 9px
   color: $base-gray
-  background-color: #ffffff
-  border: 1px solid $light-gray
+  background-color: #ffffff !important
+  border: 1px solid $lighter-gray
   border-radius: 3px
+  +single-transition("box-shadow,-moz-box-shadow,-webkit-box-shadow", 0.6s, ease)
   &:focus
-    border-color: rgba(82, 168, 236, 0.8)
-    background-color: #eee
     outline: 0
-    outline: thin dotted \9
-    +box-shadow( inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6 ))
+    border: 1px solid $light-gray
+    +box-shadow( inset 1px 1px 6px -2px $light-gray)
+  &.error
+    background-image: url("../images/delete_4.png")
+    background-position: 98% center
+    background-repeat: no-repeat
+    background-size: 20px 20px
+    border: 1px solid $hypothered-desat
+
+label
+  &.error
+    display: block 
+    background: rgba(200, 34, 12, .1)
+    border-radius: 4px
+    color: $hypothered-desat
+    font-size: .9em
+    margin:
+      top: 0em
+      bottom: .5em
+    padding:
+      top: .0em
+      bottom: .0em
+      left: .25em
+      right: .25em
+    padding-bottom: 0 !important
 
 textarea
   @extend input
@@ -563,21 +585,34 @@ form
 
 
 .button
-  font-size: 1.2em
-  font-weight: bold
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
-  color: $hypothered
-  padding: .5em 1em
-  display: inline
-  position: relative
-  border: 1px solid $light-gray
-  border-radius: 3px
-  position: relative
-  margin: 0
+  display: inline-block
+  postion: relative
+  +background-image(linear-gradient(top, #ffffff 0%, #f9f9f9 100%))
+  cursor: pointer
+  font-family: "Open Sans", sans-serif
+  font-size: 1em
+  padding:
+    top: .4em
+    bottom: .5em
+    left: .9em
+    right: .9em
+  text-shadow: 0 1px 2px rgba(255, 255, 255, .9)
+  border: 1px solid $lighter-gray
+  border-radius: 4px
+  color: #000
+  box-sizing: border-box
+  box-shadow: none
   &:hover
-    +box-shadow(inset 0 2px 8px $lighter-gray, 0 1px 4px $lighter-gray)
+    +background-image(linear-gradient(top, #fefefe 0%, #f4f4f4 50%, #e2e2e2 51%, #fdfdfd 100%))
+    border-color: rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.45)
   &:active
-    background: $lighter-gray
+    +background-image(linear-gradient(top, #fcfcfc 0%, #f3f3f3 50%, #e1e1e1 51%, #fbfbfb 100%))
+    +box-shadow( inset 0 .15em .25em rgba(0, 0, 0, 0.15), 0 .05em .1em rgba(0, 0, 0, 0.0))
+    border-color: rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25)
+  &:focus
+    outline: 0
+    border: 1px solid $light-gray
+    +box-shadow( inset 1px 1px 6px -2px $light-gray)
 
 #register_form
   label
