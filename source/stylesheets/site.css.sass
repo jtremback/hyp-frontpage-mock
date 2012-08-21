@@ -178,6 +178,10 @@ hr
   &.blank
     background-color: transparent
     height: .5em
+  &.spaced
+    margin-top: 1em
+    margin-bottom: 1em
+
 
 .spacer
   height: 3em
@@ -423,9 +427,32 @@ $marginwidth: 20px
       color: $hypothered
   .text
     float: left
-    width: 85%
     .collapsee
       font-size: .9em
+
+    div
+      color: $light-gray
+      overflow: hidden
+
+  &:hover
+    .text
+      div
+        +transition( color .5s )
+        color: $base-gray
+
+.speclist
+  +pie-clearfix
+  height: 100%
+  .number
+    float: left
+    min-width: 60px
+    text-align: center
+    h1
+      color: $hypothered
+      font-size: 3em
+      margin-bottom: 0
+      padding-bottom: 0
+  .text
 
     div
       color: $light-gray
