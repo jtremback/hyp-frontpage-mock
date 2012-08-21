@@ -446,6 +446,7 @@ $marginwidth: 20px
   .number
     float: left
     min-width: 60px
+    margin-top: -.3em
     text-align: center
     h1
       color: $hypothered
@@ -453,7 +454,6 @@ $marginwidth: 20px
       margin-bottom: 0
       padding-bottom: 0
   .text
-
     div
       color: $light-gray
       overflow: hidden
@@ -602,15 +602,25 @@ form
     input
       width: 100%
 
-//  .anon_check
-//    input
-//      width: auto
-//      float: right
-//      margin-top: .45em
-//      margin-left: .5em
-//    label
-//      float: right
-//      margin-bottom: 1em
+@mixin linkbutton
+  font-size: 2em
+  font-family: "myriad-pro", sans-serif
+  padding-left: 1.3em
+  background-size: .9em .9em
+  background-repeat: no-repeat
+  background-position: left center
+
+.chromebutton
+  @include linkbutton
+  cursor: pointer
+  margin-top: .5em
+  background-image: url("../images/chrome-logo.png")
+
+.firefoxbutton
+  @include linkbutton
+  margin-top: .5em
+  background-image: url("../images/firefox-logo-gray.png")
+
 
 
 .button
