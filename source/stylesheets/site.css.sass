@@ -603,24 +603,36 @@ form
       width: 100%
 
 @mixin linkbutton
-  font-size: 2em
+  font-size: 2.5em
   font-family: "myriad-pro", sans-serif
   padding-left: 1.3em
   background-size: .9em .9em
   background-repeat: no-repeat
   background-position: left center
 
+@mixin graphicbutton
+  width: 5.5em
+  height: 5.5em
+  background-size: 5.5em 5.5em
+  background-repeat: no-repeat
+  background-position: center
+
 .chromebutton
-  @include linkbutton
+  @include graphicbutton
   cursor: pointer
+  float: left
   margin-top: .5em
   background-image: url("../images/chrome-logo.png")
 
 .firefoxbutton
-  @include linkbutton
+  @include graphicbutton
   margin-top: .5em
+  float: left
+  clear: none
   background-image: url("../images/firefox-logo-gray.png")
 
+.firefoxbig
+  background-image: url("../images/firefox-logo-gray.png")
 
 
 .button
