@@ -1,0 +1,34 @@
+#contact.page
+
+  .topspacer
+  %h1.sectitle
+    Contact Us<span class="redtext">.</span>
+
+  %form#note_form{:action => "", :method => "post", :name => "note_form", :style => "display: block; "}
+    .contact-form
+
+      .message
+        %label{:for => "note_message", :style => "display: none; "} Message
+        %label#note_message_error.error{:for => "note_message", :style => "display: none; "} This field is required.
+        %textarea#note_message.text-input{:placeholder => "Leave us a message", :name => "note_message", :value => ""}
+
+      .identification
+        %label{:for => "note_name", :style => "display: none; "} Your name
+        %label#note_name_error.error{:for => "note_name", :style => "display: none; "} This field is required.
+        %input#note_name.text-input{:placeholder => "Enter your name", :name => "note_name",:type => "text", :value => ""}
+
+        %label{:for => "note_email", :style => "display: none; "} Your email
+        %label#note_email_error.error{:for => "note_email", :style => "display: none; "} This field is required.
+        %input#note_email.text-input{:placeholder => "Enter your email", :name => "note_email",:type => "text", :value => ""}
+
+      .note_type
+        %select{:name => "cars"}
+          %option{:value => "general"} General message
+          %option{:value => "code"} I’d like to code.
+          %option{:value => "design"} I’d like to design.
+          %option{:value => "other"} I’d like to help in other ways.
+          %option{:value => "partner"} I’d like to partner.
+          %option{:value => "talk"} I’d like to talk to you.
+          %option{:value => "question"} I have a question.
+
+      %input#submit_btn.button{:name => "note_submit", :type => "submit", :value => "Send"}
