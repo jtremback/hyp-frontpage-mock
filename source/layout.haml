@@ -25,5 +25,7 @@
     :javascript
       try{Typekit.load();}catch(e){}
   %body{:class => page_classes}
+    #navtainer
+      = partial "nav.haml"
     #main{:role => "main"}
       = yield
