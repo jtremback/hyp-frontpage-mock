@@ -13,6 +13,13 @@ $lighter-gray: $base-gray + ( $gray-interval * 3.5 )
 $hypothered: #bd1c2b
 $hypothered-desat: #bd5862
 
+@mixin minimalheader
+  h1, h2, h3, h4, h5, h6
+    font-family: 'myriad-pro', sans-serif
+    line-height: 1.2em
+    margin: 0em 0 .4em
+    padding: 0 0 .1em
+
 body
   font-size: 16px
   color: $base-gray
@@ -119,7 +126,7 @@ em, .em
 h1, h2, h3, h4, h5, h6
   font-family: 'myriad-pro', sans-serif
   line-height: 1.2em
-  margin: 0 0 .4em
+  margin: 1em 0 .4em
   padding: 0 0 .1em
 
   color: $base-gray
@@ -358,25 +365,6 @@ $marginwidth: 20px
   background: black
   height: 435px
 
-//PAGE ADJUSTMENTS
-.faq
-  margin-top: -1.5em
-
-.principles
-  margin-top: -1.5em
-
-.what
-  padding-top: 4px
-
-.press
-
-.workshop
-  padding-top: .5em
-
-.contact-form
-  padding-top: .5em
-
-
 .picunitimg
   +box-shadow(5px 5px 40px -10px rgba(0, 0, 0, 0.2))
 
@@ -417,6 +405,7 @@ $marginwidth: 20px
 
 //PRINCIPLES
 .principle
+  @include minimalheader
   +pie-clearfix
   border-bottom: 1px solid $lighter-gray
   padding-top: 1.5em
@@ -431,6 +420,7 @@ $marginwidth: 20px
       color: $hypothered
   .text
     float: left
+    width: 90%
     .collapsee
       font-size: .9em
 
@@ -444,7 +434,8 @@ $marginwidth: 20px
         +transition( color .5s )
         color: $base-gray
 
-.speclist
+.specunit
+  @include minimalheader
   +pie-clearfix
   height: 100%
   .number
@@ -467,6 +458,7 @@ $marginwidth: 20px
       div
         +transition( color .5s )
         color: $base-gray
+
 
 .faqunit
   @extend .principle
@@ -491,6 +483,7 @@ $marginwidth: 20px
 
 
 .pressunit
+  @include minimalheader
   padding-bottom: 2em
   margin-top: 2em
   border-bottom: 1px solid $lighter-gray

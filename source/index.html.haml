@@ -1,38 +1,44 @@
 - content_for :head do
   %title Hypothes.is | The Internet, peer reviewed.
 
-#pagetainer
-  = partial "home.haml"
-  = partial "what.haml"
-  = partial "workshop.haml"
-  = partial "press.haml"
-  = partial "principles.haml"
-  = partial "faq.haml"
-  = partial "who.haml"
-  = partial "contribute.haml"
-  = partial "contact.haml"
-  = partial "alpha.haml"
-  = partial "instructions.haml"
-  = partial "sandbox.haml"
-  = partial "robust_anchoring.haml"
+#imagine.page
 
-.topspacer
-/ :javascript
-/   var _sf_async_config={uid:29661,domain:"hypothes.is"};
-/   (function(){
-/     function loadChartbeat() {
-/       window._sf_endpt=(new Date()).getTime();
-/       var e = document.createElement('script');
-/       e.setAttribute('language', 'javascript');
-/       e.setAttribute('type', 'text/javascript');
-/       e.setAttribute('src',
-/          (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-/          "js/chartbeat.js");
-/       document.body.appendChild(e);
-/     }
-/     var oldonload = window.onload;
-/     window.onload = (typeof window.onload != 'function') ?
-/        loadChartbeat : function() { oldonload(); loadChartbeat(); };
-/   })();
+  .topspacer
+  %h1.sectitle
+    Imagine<span class="redtext">...</span>
 
-/   (function(){var d=document,s=d.createElement('script');s.setAttribute('src', 'https://test.hypothes.is/embed.js');d.body.appendChild(s)})()
+  .home.accordion
+    .row
+      .one_whole
+        %p.em
+          If wherever we encountered new information, sentence by sentence, frame by frame, we could easily know the best thinking on it.
+        %p.em
+          If we had confidence that this represented the combined wisdom of the most informed people&mdash;not as anointed by editors, but as weighed over time by our peers, objectively, statistically and transparently.
+        %p.em
+          If this created a powerful incentive for people to ensure that their works met a higher standard, and made it perceptibly harder to spread information that didn't meet that standard.
+        %p
+          These goals are possible with today's technologies.
+        %p
+          They are the objectives of Hypothes.is.
+        %a#us_re.tipper Reserve your username.
+        %form#register_form.two_thirds.us_re.tip
+          #availability_status
+          %label{:for => "username", :style => "display: none;"} Choose a Username.
+          %input#username.clearFocus{:name => "username", :type => "text", :placeholder => "Choose a Username"}
+          %label{:for => "email", :style => "display: none;"} Enter your email.
+          %input#email{:name => "email", :type => "text", :placeholder => "Enter your email."}
+          %label{:for => "email2", :style => "display: none;"} Confirm your email.
+          %input#email2{:name => "email2", :type => "text", :placeholder => "Confirm your email."}
+          %input.button{:name => "button", :type => "submit", :value => "Save my username"}
+
+    .spacer
+
+    .row
+      .one_fifth
+        %a{ :href => "https://twitter.com/#!/hypothes_is" }
+          .twitbird
+
+    .row
+      .four_fifths
+        #tweets
+        %a.morelink{ :href => "https://twitter.com/#!/hypothes_is" } More...
