@@ -1,5 +1,3 @@
-
-
 // $(document).ready(function() {
 //   // Bind an event to window.onhashchange that, when the hash changes, gets the
 //   // hash and adds the class "selected" to any matching nav link.
@@ -19,6 +17,24 @@
 //   // Hide the invisible things ASAP on page load.
 //   $('.page').not(location.hash || '#imagine').hide()
 // });
+
+
+// LOADING EFFECTS- FADEIN AND MENU CHANGING
+$(function(){
+  $("#main").hide();
+});
+
+$(document).ready(function(){
+  $("#main").fadeIn("slow");
+  var page = "index.html"
+  if (document.location.pathname.length) {
+    var path_parts = location.pathname.split('/');
+    page = path_parts[path_parts.length-1];
+  }
+  $('#navlist a[href!="' + page + '"]').removeClass("hover")
+  $('#navlist a[href="' + page +  '"]').addClass("hover")
+});
+
 
 
 //MINIFEED SETUP CODE
