@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hypo Username Check</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.js"></script>
+<script type="text/javascript" src="hypo-user-check.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+
+
+<style>
+
+
+
+#username.valid, #email.valid {
+
+	border: 3px #090 solid;
+	background: url("tick.png") no-repeat scroll 200px 5px transparent;
+	}
+	
+#username.error, #email.error {
+
+	border: 3px #C33 solid;
+	background: url("cross.png") no-repeat scroll 200px 5px transparent;
+	}
+	
+	#username, #email{
+	padding:3px;
+	font-size:18px;
+	border:3px #CCC solid;
+}
+	
+
+</style>
+</head>
+
+<body>
+
+
+Here are some usernames that have been put in the database:<br/><br />
+
+tsubodave, danw<br/><br/>
+
+<form id="register_form">
+<div id="availability_status"></div>
+Username: <input id="username" name="username" type="text" value="Reserve a Username" maxlength="50" class="clearFocus" />
+Email: <input id="email" name="email" type="text" value="Enter your email" maxlength="50" />
+
+<input id="signupsubmit" name="signup" type="submit" value="Signup" />
+</form>
+
+
+</body>
+</html>
